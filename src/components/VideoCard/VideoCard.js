@@ -15,7 +15,8 @@ function VideoCard({ movie }) {
       <TextTruncate
         line={1}
         element="p"
-        textTruncateChild={<a href="#">Read more</a>}
+        // textTruncateChild={<a href="#">Read more</a>}
+        truncateText="..."
         text={movie.overview}
       />
       <TextTruncate
@@ -25,7 +26,7 @@ function VideoCard({ movie }) {
         text={movie.title || movie.original_name}
       />
       <p className="videoCard__stats">
-        {movie.media_type && `${movie.media_type} ●`}●{" "}
+        {movie.media_type && `${movie.media_type} ● `}
         {movie.release_date || movie.first_air_date}
         <ThumbUpSharpIcon />
         {movie.vote_count}
