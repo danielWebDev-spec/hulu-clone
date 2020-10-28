@@ -1,26 +1,24 @@
-import { MovieSharp } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import "./Results.css";
 import axios from "../../axios";
-import requests from "../../requests";
 
-function Results() {
+function Results({ selectedOption }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const results = await axios.get(requests.fetchActionMovies);
+      const results = await axios.get(selectedOption);
       setMovies(results.data.results);
     }
 
     fetchData();
-  }, []);
+  }, [selectedOption]);
 
   return (
     <div className="results">
       {movies.map((movie) => (
-        <VideoCard movie={movie} />
+        <VideoCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
