@@ -1,10 +1,11 @@
 import React from "react";
+import VideoCard from "../VideoCard/VideoCard";
 import "./Results.css";
 
 function Results() {
   return (
     <div className="results">
-      <h1>Results section</h1>
+      <VideoCard />
     </div>
   );
 }
